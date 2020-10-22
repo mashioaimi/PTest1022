@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -21,7 +22,6 @@ namespace PTest1022 {
             //６以上…「６以上です」
 
             /*** ●●● ここへ解答を入力 ●●● ***/
-            
 
 
 
@@ -39,8 +39,8 @@ namespace PTest1022 {
             //※動作チェックする場合は「Exam_2_Stab()を使用すること」
 
             /*** ●●● ここへ解答を入力 ●●● ***/
-
-
+            //var dt = data(Exam_2_Stab) ?? data();
+            
 
 
 
@@ -69,8 +69,7 @@ namespace PTest1022 {
             //bookオブジェクトのタイトル名を出力せよ
             //bookオブジェクトがnullの場合はそのままnullを返却すること
             /*** ●●● ここへ解答を入力 ●●● ***/
-
-
+            //return book?.Title;
 
 
 
@@ -87,10 +86,13 @@ namespace PTest1022 {
 
             //金額が1200円以上の書籍を抽出せよ
             //出力については「タイトル」と「金額」を出力すること
-            
+
             /*** ●●● ここへ解答を入力 ●●● ***/
-
-
+            var book = books.Where(x => x.Price >= 1200);
+            foreach (var item in book)
+            {
+                Console.WriteLine($"{item.Title}{item.Price}");
+            }
 
 
 
@@ -107,8 +109,11 @@ namespace PTest1022 {
             //出力については「タイトル」と「ページ数」を出力すること
 
             /*** ●●● ここへ解答を入力 ●●● ***/
-
-
+            var bks = books.Where(x => x.Title.Contains("物語") && x.Pages >= 400);
+            foreach (var item in bks)
+            {
+                Console.WriteLine($"{item.Title} {item.Pages}");
+            }
 
 
 
@@ -123,8 +128,11 @@ namespace PTest1022 {
             //出力については改行をせず、ヨコにスペースを空けて出力する
             // 出力例）79 65 53 45 35 34 20 12
             /*** ●●● ここへ解答を入力 ●●● ***/
-
-
+            var number = numbers.Distinct().OrderByDescending(x => x);
+            foreach (var item in number)
+            {
+                Console.Write(item + " ");
+            }
 
 
 
@@ -139,7 +147,7 @@ namespace PTest1022 {
             //引数で受け取った numbers の平均を変数 avg に求めよ
             /*** ●●● ここへ解答を入力 ●●● ***/
 
-
+            Console.Write(numbers.Average());
 
 
 
@@ -158,7 +166,6 @@ namespace PTest1022 {
             // 出力例）60 36 135 195 102 105 195 159 237
 
             /*** ●●● ここへ解答を入力 ●●● ***/
-
 
 
 
